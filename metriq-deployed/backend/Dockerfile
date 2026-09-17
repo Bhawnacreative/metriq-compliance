@@ -7,17 +7,18 @@ RUN apt-get update && \
     tesseract-ocr-eng && \
     rm -rf /var/lib/apt/lists/*
 
-# Backend working directory
+# Working directory
 WORKDIR /app
 
 # Install Python dependencies
 COPY requirements.txt .
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy FastAPI application
+# Copy application
 COPY app ./app
 
-# Copy compliance knowledge base
+# Copy Legal Metrology knowledge base
 COPY knowledge_base ./knowledge_base
 
 # Create data directory

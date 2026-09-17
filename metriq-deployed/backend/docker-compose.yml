@@ -1,0 +1,8 @@
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      - FRONTEND_ORIGIN=http://localhost:5173
+    volumes:
+      - ./data:/app/data

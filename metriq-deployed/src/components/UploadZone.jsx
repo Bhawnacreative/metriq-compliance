@@ -1,0 +1,10 @@
+import React,{useRef,useState} from "react";
+export default function UploadZone({image,onImage,onClear,onScan,scanning}) {
+ const input=useRef(),[drag,setDrag]=useState(false);
+ const read=f=>{if(f&&f.type.startsWith("image/"))onImage(URL.createObjectURL(f));};
+ return <div onDragOver={e=>{e.preventDefault();setDrag(true)}} onDragLeave={()=>setDrag(false)} onDrop={e=>{e.preventDefault();setDrag(false);read(e.dataTransfer.files[0])}} className={`rounded-3xl border-2 border-dashed p-6 transition-all ${drag?"scale-[1.01] border-[#ff5a5f] bg-[#ff5a5f]/8":"border-[#7f1d3a]/15 bg-white/50 dark:border-white/10 dark:bg-white/[.03]"}`}>
+   {image?<div><div className="relative mx-auto mb-4 h-40 w-full overflow-hidden rounded-2xl bg-white dark:bg-white/5"><img src={image} alt="Preview" className="h-full w-full object-contain"/><button onClick={onClear} className="absolute right-2 top-2 rounded-xl bg-black/60 px-3 py-1 text-xs font-bold text-white">Remove</button></div><div className="text-center text-sm font-bold text-[#19c37d]">✓ Product image ready</div></div>:<div className="text-center"><div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-[#ffb547] to-[#ff5a5f] text-2xl text-white shadow-lg">⌁</div><h3 className="mt-4 font-display text-lg font-bold">Drop product image here</h3><p className="mt-1 text-sm text-[#76676b] dark:text-[#b9aeb1]">PNG, JPG, JPEG or WEBP</p><button onClick={()=>input.current.click()} className="mt-5 rounded-xl border border-[#7f1d3a]/15 bg-white px-4 py-2 text-sm font-bold transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/5">Browse files</button></div>}
+   <input ref={input} hidden type="file" accept="image/png,image/jpeg,image/webp" onChange={e=>read(e.target.files[0])}/>
+   <button disabled={!image||scanning} onClick={onScan} className="mt-5 w-full rounded-xl bg-gradient-to-r from-[#7f1d3a] to-[#ff5a5f] px-4 py-3 font-bold text-white shadow-lg transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40">{scanning?"Scanning package…":"Start Compliance Scan →"}</button>
+ </div>
+}

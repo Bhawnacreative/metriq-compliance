@@ -1,0 +1,5 @@
+import React from "react";
+export default function FeatureCard({icon,title,text,tag}){return <div className="glass group relative overflow-hidden rounded-3xl p-6 transition duration-500 hover:-translate-y-2 hover:rotate-[1deg] hover:shadow-glow [transform-style:preserve-3d]">
+  <div className="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-[#ffb547]/20 blur-2xl transition group-hover:scale-150"/>
+  <div className="relative"><div className="mb-5 flex items-center justify-between"><div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#7f1d3a] to-[#ff5a5f] text-xl text-white transition duration-500 group-hover:rotate-6 group-hover:scale-110">{icon}</div>{tag&&<span className="rounded-full bg-[#19c37d]/10 px-2 py-1 text-[9px] font-bold uppercase text-[#19c37d]">{tag}</span>}</div><h3 className="font-display text-lg font-bold">{title}</h3><p className="mt-2 text-sm leading-6 text-[#75666a] dark:text-[#bdb2b5]">{text}</p></div>
+</div>}

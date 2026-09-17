@@ -1,0 +1,137 @@
+{
+  "source_authority": "Department of Consumer Affairs, Government of India",
+  "base_rules": "Legal Metrology (Packaged Commodities) Rules, 2011",
+  "source_url": "https://consumeraffairs.gov.in/pages/legal-metrology-act",
+  "last_verified": "2026-09-16",
+  "disclaimer": "Decision-support system. Verify the applicable current notification, amendment and product-specific exception before treating a result as a legal determination.",
+  "rules": [
+    {
+      "id": "PC-R6-MANUFACTURER",
+      "rule": "Rule 6",
+      "title": "Manufacturer / packer / importer declaration",
+      "field": "manufacturer",
+      "patterns": [
+        "manufactured by",
+        "manufactured at",
+        "manufactured for",
+        "packed by",
+        "packer",
+        "importer"
+      ],
+      "required": true
+    },
+    {
+      "id": "PC-R6-ORIGIN",
+      "rule": "Rule 6",
+      "title": "Country of origin",
+      "field": "origin",
+      "patterns": [
+        "country of origin",
+        "made in"
+      ],
+      "required_if": "imported"
+    },
+    {
+      "id": "PC-R6-COMMON-NAME",
+      "rule": "Rule 6",
+      "title": "Common / generic name",
+      "field": "common_name",
+      "patterns": [
+        "soap",
+        "shampoo",
+        "oil",
+        "rice",
+        "flour",
+        "biscuit",
+        "tea",
+        "coffee",
+        "detergent",
+        "cream",
+        "toothpaste",
+        "salt",
+        "sugar",
+        "milk",
+        "juice",
+        "snack",
+        "chips",
+        "masala"
+      ],
+      "required": true
+    },
+    {
+      "id": "PC-R6-NET-QTY",
+      "rule": "Rule 6",
+      "title": "Net quantity",
+      "field": "net_quantity",
+      "patterns": [
+        "net quantity",
+        "net wt",
+        "net weight",
+        "net volume",
+        "kg",
+        "g",
+        "mg",
+        "ml",
+        "litre",
+        "liter",
+        "l"
+      ],
+      "required": true
+    },
+    {
+      "id": "PC-R6-MRP",
+      "rule": "Rule 6",
+      "title": "Retail sale price / MRP",
+      "field": "mrp",
+      "patterns": [
+        "mrp",
+        "maximum retail price",
+        "retail sale price",
+        "\u20b9",
+        "rs."
+      ],
+      "required": true
+    },
+    {
+      "id": "PC-R6-DATE",
+      "rule": "Rule 6",
+      "title": "Date information",
+      "field": "date",
+      "patterns": [
+        "mfd",
+        "manufactured on",
+        "packed on",
+        "date of manufacture",
+        "date of packing",
+        "best before",
+        "use by"
+      ],
+      "required": true
+    },
+    {
+      "id": "PC-R6-CONSUMER",
+      "rule": "Rule 6",
+      "title": "Consumer care information",
+      "field": "consumer_care",
+      "patterns": [
+        "consumer care",
+        "customer care",
+        "helpline",
+        "toll free",
+        "email"
+      ],
+      "required": true
+    },
+    {
+      "id": "PC-R5-STANDARD-PACK",
+      "rule": "Rule 5",
+      "title": "Standard pack size / non-standard declaration",
+      "field": "standard_pack",
+      "patterns": [
+        "not a standard pack size under the legal metrology",
+        "non standard size under the legal metrology"
+      ],
+      "required": false
+    }
+  ]
+}
